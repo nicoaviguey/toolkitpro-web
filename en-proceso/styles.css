@@ -239,6 +239,80 @@ footer {
   stroke: var(--violeta);
 }
 
+/* .simbolo {
+  position: relative;
+  font-size: 2rem;
+  background: var(--violeta);
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.simbolo:hover {
+  background: var(--violeta-intenso);
+}
+*/
+.simbolo::after {
+  content: "¡Copiado!";
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--violeta-intenso);
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.simbolo.copiado::after {
+  opacity: 1;
+} 
+
+.simbolos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.simbolo {
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.simbolo:hover {
+  background-color: var(--violeta);
+  color: white;
+}
+
+.simbolo.copiado {
+  background-color: var(--violeta-intenso);
+  color: white;
+  box-shadow: 0 0 8px var(--violeta);
+}
+
+.info-text {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--azul-gris);
+}
+
 
 
 /* Responsive: Móviles hasta 768px */

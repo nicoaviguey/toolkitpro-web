@@ -79,6 +79,25 @@ function loadContent(page) {
     .then(html => {
       document.getElementById('main-content').innerHTML = html;
       sidebar.classList.remove('active');
+
+      // Verificar si se ha cargado la página de símbolos
+      if (page === 'herramientas/simbolos') {
+        const simbolos = document.querySelectorAll('.simbolo');
+        simbolos.forEach(simbolo => {
+          simbolo.addEventListener('click', () => {
+            const texto = simbolo.textContent;
+            navigator.clipboard.writeText(texto).then(() => {
+              simbolo.classList.add('copiado');
+              if (navigator.vibrate) {
+                navigator.vibrate(100);
+              }
+              setTimeout(() => {
+                simbolo.classList.remove('copiado');
+              }, 1200);
+            });
+          });
+        });
+      }
     })
     .catch(err => {
       document.getElementById('main-content').innerHTML = '<p>Error al cargar el contenido.</p>';
