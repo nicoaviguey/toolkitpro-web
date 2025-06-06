@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="light-theme">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <div class="logo">ToolkitPRO</div>
+    <div class="logo"><a href="index.html">ToolkitPRO</a></div>
     
 
     <!-- Botón modo claro/oscuro -->
@@ -34,33 +34,48 @@
   </header>
 
   <div class="wrapper">
-  <main>
-    <h1>Bienvenido a <span>ToolkitPRO</span></h1>
-    <p>Proximamente - Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-    <a href="#" class="btn">Iniciar</a>
-  </main>
+    <main id="main-content">
+      <h1>Bienvenido a <span>ToolkitPRO</span></h1>
+      <p>Próximamente - Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <a href="#" class="btn">Iniciar</a>
+    </main>
   </div>
 
   <!-- Sidebar oculto -->
   <nav class="sidebar" id="sidebar">
     <div class="close-btn" id="close-btn">&times;</div>
 
-    <ul>
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#">Herramientas</a></li>
-      <li><a href="#">Contacto</a></li>
-    </ul>
+      <ul>
+        <li><a href="#" onclick="loadContent('home')">Inicio</a></li>
+        <li>
+          <details>
+        <summary>Herramientas</summary>
+      <ul class="sub-menu">
+        <li><a href="#" onclick="loadContent('herramientas/simbolos')">Símbolos</a></li>
+        <li><a href="#" onclick="loadContent('herramientas/conversor')">Conversor de texto</a></li>
+        <li><a href="#" onclick="loadContent('herramientas/contador')">Contador de palabras</a></li>
+      </ul>
+    </details>
+      </li>
+    <li><a href="#" onclick="loadContent('contacto')">Contacto</a></li>
+  </ul>
+
+
   </nav>
 
   <script src="script.js"></script>
 
     <footer>
     <p>&copy; 2025 ToolkitPRO. Built with 💜 by NicoAviguey.</p>
-    <ul class="footer-links">
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#">Herramientas</a></li>
-      <li><a href="#">Contacto</a></li>
-    </ul>
+
+      <ul class="footer-links">
+        <li><a href="#" onclick="loadContent('home')">Inicio</a></li>
+        <li><a href="#" onclick="loadContent('herramientas/simbolos')">Símbolos</a></li>
+        <li><a href="#" onclick="loadContent('herramientas/conversor')">Conversor de texto</a></li>
+        <li><a href="#" onclick="loadContent('herramientas/contador')">Contador de palabras</a></li>
+        <li><a href="#" onclick="loadContent('contacto')">Contacto</a></li>
+      </ul>
+
     </footer>
 
 

@@ -17,7 +17,7 @@ const closeBtn = document.getElementById('close-btn');
 
 closeBtn.addEventListener('click', (e) => {
   e.stopPropagation();
-  sidebar.classList.remove('active');
+  cerrarSidebar();
 });
 
 document.addEventListener('click', (e) => {
@@ -25,12 +25,25 @@ document.addEventListener('click', (e) => {
   if (sidebar.classList.contains('active')) {
     // Y el clic NO fue dentro del sidebar ni en el botón del toggle
     if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
-      sidebar.classList.remove('active');
+      cerrarSidebar();
     }
   }
 });
 
-// Modo claro o oscuro
+// Cerrar también el submenú al cerrar el sidebar
+const herramientasDetails = document.querySelector('.sidebar details');
+
+function cerrarSidebar() {
+  sidebar.classList.remove('active');
+  const herramientasDetails = document.querySelector('.sidebar details');
+  if (herramientasDetails) {
+    herramientasDetails.removeAttribute('open');
+  }
+}
+
+
+
+// Modo claro u oscuro
 themeToggleBtn.addEventListener('click', () => {
   document.documentElement.classList.toggle('light-theme');
 
@@ -46,9 +59,29 @@ themeToggleBtn.addEventListener('click', () => {
 // Al cargar la página, restaurar preferencia guardada
 window.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'light') {
+
+  if (savedTheme === 'dark') {
+    document.documentElement.classList.remove('light-theme');
+    iconMoon.style.display = 'inline';
+    iconSun.style.display = 'none';
+  } else{
+    // Dejar Tema claro por defecto
     document.documentElement.classList.add('light-theme');
     iconMoon.style.display = 'none';
     iconSun.style.display = 'inline';
   }
 });
+
+// Para cambiar el contenido del main
+function loadContent(page) {
+  fetch(`${page}.html`)
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('main-content').innerHTML = html;
+      sidebar.classList.remove('active');
+    })
+    .catch(err => {
+      document.getElementById('main-content').innerHTML = '<p>Error al cargar el contenido.</p>';
+      console.error(err);
+    });
+}

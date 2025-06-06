@@ -12,6 +12,14 @@
   --violeta-intenso: #a259ff;
   --azul-gris: #64748b;
 }
+:root {
+  --sidebar-fondo: #1a1a2e; /* modo oscuro */
+  /* ...ya tienes el resto de tus variables */
+}
+
+:root.light-theme {
+  --sidebar-fondo: #f3f4f6; /* gris claro */
+}
 
 
 * {
@@ -40,10 +48,15 @@ header {
   align-items: center;
 }
 
-.logo {
+.logo a{
   font-size: 1.2rem;
   font-weight: bold;
+  text-decoration: none;
   color: var(--violeta);
+}
+
+.logo a:hover{
+  color: var(--violeta-intenso);
 }
 
 .menu-icon {
@@ -90,7 +103,7 @@ main p {
   right: -250px;
   width: 250px;
   height: 100%;
-  background: #1a1a2e;
+  background: var(--sidebar-fondo);
   padding-top: 4rem;
   transition: right 0.3s ease;
   z-index: 999;
@@ -128,6 +141,50 @@ main p {
   color: var(--violeta);
   cursor: pointer;
 }
+
+.sidebar details {
+  color: var(--texto);
+  font-size: 1.2rem;
+}
+
+.sidebar details summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: bold;
+  padding: 0.5rem 0;
+}
+
+.sub-menu {
+  list-style: none;
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+.sub-menu li {
+  margin: 0.5rem 0;
+}
+
+.sub-menu li a {
+  font-size: 1rem;
+  color: var(--azul-gris);
+}
+
+.sub-menu li a:hover {
+  color: var(--violeta);
+}
+.sidebar ul,
+.sidebar details,
+.sidebar summary,
+.sidebar ul li,
+.sidebar ul li a,
+.sub-menu li a {
+  text-align: center;
+}
+.sidebar details summary:hover {
+  color: var(--violeta);
+  transition: color 0.3s ease;
+}
+
 
 footer {
   margin-top: auto;
