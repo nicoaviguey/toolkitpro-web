@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 
 :root {
   --violeta: #a259ff;
@@ -472,6 +471,7 @@ footer {
 #generar-lorem:active {
   transform: scale(0.98);
 }
+
 input[type="number"] {
   padding: 0.5rem 1rem;
   border: 1px solid var(--input-border, #ccc);
