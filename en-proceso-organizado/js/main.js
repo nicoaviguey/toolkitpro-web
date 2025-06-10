@@ -1,4 +1,5 @@
 // ------------------- CARGA DINÁMICA DE CONTENIDO -------------------
+
 function loadContent(page) {
   fetch(`${page}.html`)
     .then(res => res.text())
@@ -30,7 +31,7 @@ function loadContent(page) {
         function mostrarVersiones(texto) {
           fuentesDecorativas.forEach(fuente => {
             const decorado = convertirTexto(texto, fuente);
-            const em = document.querySelector(`#fuente-${fuente.nombre.replace(/\s+/g, '-')}`); // ID como fuente-Gótico, fuente-Burbuja
+            const em = document.querySelector(`#fuente-${fuente.nombre.replace(/\s+/g, '-')}`);
             if (em) {
               em.textContent = decorado;
             }
@@ -44,7 +45,6 @@ function loadContent(page) {
         mostrarVersiones('');
       }
 
-
       // --- Página del contador ---
       if (page === 'herramientas/contador') {
         const textarea = document.getElementById('texto-contador');
@@ -54,7 +54,6 @@ function loadContent(page) {
 
         textarea.addEventListener('input', () => {
           const texto = textarea.value;
-
           const palabras = texto.trim().split(/\s+/).filter(p => p.length > 0);
           const numPalabras = palabras.length;
           const numCaracteres = texto.length;
@@ -68,7 +67,6 @@ function loadContent(page) {
 
       // --- Página del Generador de Lorem Ipsum ---
       if (page === 'herramientas/lorem') {
-        // Generador de Lorem Ipsum con párrafos largos
         const loremBtn = document.getElementById('generar-lorem');
         const loremCantidad = document.getElementById('lorem-cantidad');
         const loremResultados = document.getElementById('lorem-resultados');
@@ -93,21 +91,16 @@ function loadContent(page) {
 
         function generarLorem(parrafos = 1) {
           let resultado = '';
-
           for (let i = 0; i < parrafos; i++) {
-            // Generar entre 5 y 8 frases por párrafo
             const numFrases = Math.floor(Math.random() * 4) + 5;
             const frases = [];
-
             for (let j = 0; j < numFrases; j++) {
               const frase = loremFrases[Math.floor(Math.random() * loremFrases.length)];
               frases.push(frase);
             }
-
             const parrafo = frases.join(' ');
             resultado += `<p>${parrafo}</p>`;
           }
-
           return resultado;
         }
 
@@ -120,11 +113,32 @@ function loadContent(page) {
         }
       }
 
-
-
     })
     .catch(err => {
       document.getElementById('main-content').innerHTML = '<p>Error al cargar el contenido.</p>';
       console.error(err);
     });
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+  const hash = location.hash.replace('#', '');
+  if (hash) {
+    loadContent(hash);
+    history.replaceState({ page: hash }, "", `#${hash}`);
+  } else {
+    navegar('home'); // o la página que quieras por defecto
+  }
+});
+
+// ------------------- NAVEGACIÓN CON HISTORIAL -------------------
+
+function navegar(page) {
+  loadContent(page);
+  history.pushState({ page }, "", `#${page}`);
+}
+
+window.addEventListener("popstate", (event) => {
+  if (event.state && event.state.page) {
+    loadContent(event.state.page);
+  }
+});
