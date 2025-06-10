@@ -1,0 +1,280 @@
+.wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.theme-toggle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--violeta);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem;
+}
+
+.theme-toggle-btn svg {
+  stroke: var(--violeta);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: var(--violeta);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--violeta-intenso);
+}
+
+/* .simbolo {
+  position: relative;
+  font-size: 2rem;
+  background: var(--violeta);
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.simbolo:hover {
+  background: var(--violeta-intenso);
+}
+*/
+
+.simbolo::after {
+  content: "¡Copiado!";
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--violeta-intenso);
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.simbolo.copiado::after {
+  opacity: 1;
+} 
+
+.simbolos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.simbolo {
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.simbolo:hover {
+  background-color: var(--violeta);
+  color: white;
+}
+
+.simbolo.copiado {
+  background-color: var(--violeta-intenso);
+  color: white;
+  box-shadow: 0 0 8px var(--violeta);
+}
+
+.info-text {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--azul-gris);
+}
+
+
+.conversor {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: var(--fondo-secundario);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.conversor label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: var(--texto-principal);
+}
+
+#input-text {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  background-color: var(--fondo-principal);
+  color: var(--texto-principal);
+}
+
+.fuente {
+  background-color: var(--fondo-principal);
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--acento);
+  border-radius: 6px;
+  color: var(--texto-principal);
+}
+
+.fuente strong {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+  color: var(--acento);
+}
+
+.fuente em {
+  display: block;
+  font-style: normal;
+  font-size: 1.1rem;
+  word-wrap: break-word;
+  user-select: text;
+}
+
+
+.contador-wrapper {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background-color: var(--bg-secundario);
+  color: var(--texto);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contador-wrapper textarea {
+  width: 100%;
+  height: 150px;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--borde);
+  background-color: var(--bg-input);
+  color: var(--texto);
+  resize: vertical;
+  font-size: 1rem;
+}
+
+.resultados-contador {
+  margin-top: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.resultados-contador p {
+  margin: 0;
+  flex: 1 1 30%;
+}
+
+.lorem-output p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--color-texto);
+}
+.form-group {
+  margin-bottom: 1.5rem;
+}
+#cantidad {
+  width: 60px;
+  margin: 0 0.5rem;
+}
+#lorem-generator {
+  margin-top: 2rem;
+}
+
+#lorem-resultados {
+  max-width: 60ch;
+  margin: 2rem auto;
+  padding: 1rem;
+  line-height: 1.8;
+  text-align: justify;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.1rem;
+}
+
+#lorem-resultados p {
+  text-indent: 2em;             /* Sangría al comenzar el párrafo */
+  margin-bottom: 1.5rem;        /* Espacio entre párrafos */
+}
+#generar-lorem {
+  background: var(--accent-color, #6c5ce7); /* usa tu color primario */
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#generar-lorem:hover {
+  background: var(--accent-hover, #5a4bcf); /* un tono más oscuro */
+  transform: scale(1.03);
+}
+
+#generar-lorem:active {
+  transform: scale(0.98);
+}
+
+input[type="number"] {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--input-border, #ccc);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background-color: var(--input-bg, #fff);
+  color: var(--text-color, #000);
+  transition: border-color 0.3s, background-color 0.3s;
+  width: 80px;
+  text-align: center;
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--accent-color, #6c5ce7);
+  box-shadow: 0 0 0 2px rgba(108, 92, 231, 0.2);
+}
+
+/* Quitar flechitas en Chrome */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

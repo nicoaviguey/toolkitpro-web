@@ -1,0 +1,62 @@
+/* Responsive: Móviles hasta 768px */
+@media (max-width: 768px) {
+  body {
+    padding: 1.5rem;
+  }
+
+  main h1 {
+    font-size: 2rem;
+  }
+
+  main p {
+    font-size: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  .menu-icon {
+    font-size: 1.8rem;
+  }
+
+  .sidebar .sidebar.active {
+    width: 100%;
+  }
+
+  .sidebar ul li a {
+    font-size: 1.3rem;
+  }
+
+  footer {
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1rem;
+  }
+}
+
+/* Responsive: Pantallas muy grandes */
+@media (min-width: 1200px) {
+  main h1 {
+    font-size: 3.5rem;
+  }
+
+  main p {
+    font-size: 1.25rem;
+  }
+
+  .btn {
+    font-size: 1.1rem;
+  }
+}
