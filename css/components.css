@@ -38,11 +38,11 @@
   background: var(--violeta-intenso);
 }
 
-/* .simbolo {
+.simbolo {
   position: relative;
   font-size: 2rem;
-  background: var(--violeta);
-  color: white;
+  /* background: var(--violeta); */
+  /* color: white; */
   border: none;
   padding: 0.6rem 1rem;
   border-radius: 0.5rem;
@@ -53,7 +53,7 @@
 .simbolo:hover {
   background: var(--violeta-intenso);
 }
-*/
+
 
 .simbolo::after {
   content: "¡Copiado!";
@@ -289,6 +289,17 @@ a.correo {
 
 a.correo:hover {
   text-decoration: underline;
+}
+
+.correo{
+  
+  padding: 4px;
+}
+
+.correo:hover{
+  background-color:#5a4bcf;
+  border-radius: 10px;
+  color: white;
 }
 
 .tool-links {
