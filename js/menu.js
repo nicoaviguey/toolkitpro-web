@@ -1,3 +1,10 @@
+// =============================
+// Proyecto: ToolKitPRO - by nicoaviguey💖
+// Autor: Nicole Avendaño
+// Fecha: Julio 2025
+// Descripción: Conjunto de herramientas básicas desarrolladas con HTML, CSS y JavaScript.
+// =============================
+
 const toggleBtn = document.getElementById('menu-toggle');
 const sidebar = document.getElementById('sidebar');
 
